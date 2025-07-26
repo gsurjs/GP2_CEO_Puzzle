@@ -56,3 +56,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     header('Location: admin.php');
     exit;
 }
+
+//get stats
+$stmt = $db->query("SELECT COUNT(*) as total_users FROM users");
+$totalUsers = $stmt->fetch()['total_users'];
+
+$stmt = $db->query("SELECT COUNT(*) as total_games FROM game_stats");
+$totalGames = $stmt->fetch()['total_games'];
+
+$stmt = $db->query("SELECT COUNT(*) as active_sessions FROM game_sessions");
+$activeSessions = $stmt->fetch()['active_sessions'];
+
+//get all users
+$stmt = $db->query("
+    SELECT u.*, 
+           COUNT(DISTINCT gs.stat_id) as games_played,
+           MAX(u.last_login) as last_seen
+    FROM users u
+    LEFT JOIN game_stats gs ON u.user_id = gs.user_id
+    GROUP BY u.user_id
+    ORDER BY u.registration_date DESC
+");
+$users = $stmt->fetchAll();
