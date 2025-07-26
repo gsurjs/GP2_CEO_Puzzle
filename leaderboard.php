@@ -26,7 +26,7 @@ $availableSizes = $stmt->fetchAll(PDO::FETCH_COLUMN);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1️⃣5️⃣ Puzzle - Leaderboard</title>
-    <link rel="stysheet" href="leaderboard-styling.css">
+    <link rel="stylesheet" href="leaderboard-styling.css">
 </head>
 <body>
     <div class="header">
