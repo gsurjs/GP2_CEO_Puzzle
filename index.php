@@ -16,7 +16,7 @@ require_once 'config/database.php';
         
         <div class="buttons">
             <?php if (isLoggedIn()): ?>
-                <a href="classes/Game.php" class="btn btn-primary">Play Game</a>
+                <a href="game.php" class="btn btn-primary">Play Game</a>
                 <a href="profile.php" class="btn btn-secondary">My Profile</a>
             <?php else: ?>
                 <a href="login.php" class="btn btn-primary">Login</a>
