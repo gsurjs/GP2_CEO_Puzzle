@@ -105,11 +105,7 @@ CREATE TABLE game_sessions (
 
 -- insert default background images
 INSERT INTO background_images (image_name, image_url) VALUES
-('Mario', 'images/backgrounds/mario.jpg'),
-('Nature Scene', 'images/backgrounds/nature.jpg'),
-('Space', 'images/backgrounds/space.jpg'),
-('Abstract', 'images/backgrounds/abstract.jpg'),
-('Classic Numbers', 'images/backgrounds/numbers.jpg');
+('CEO', 'images/backgrounds/coldplayceo-400x400.png');
 
 -- insert sample achievements
 INSERT INTO achievements (achievement_name, achievement_description, points_value) VALUES
