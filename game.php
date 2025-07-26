@@ -181,5 +181,6 @@ $stats = $userObj->getStatistics($_SESSION['user_id']);
         <p id="achievementDesc"></p>
         <button onclick="closeAchievement()">Close</button>
     </div>
+    <script src="game-script.js"></script>
 </body>
 </html>
