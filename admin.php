@@ -2,7 +2,7 @@
 //administrative panel for managing the game
 require_once 'config/database.php';
 require_once 'classes/User.php';
-require_once 'classes/Game.php';
+require_once 'game.php';
 
 //require admin access
 requireLogin();

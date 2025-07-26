@@ -1,7 +1,7 @@
 <?php
 //display game leaderboards
 require_once 'config/database.php';
-require_once 'classes/Game.php';
+require_once 'game.php';
 
 $db = getDBConnection();
 $gameObj = new Game($db);
