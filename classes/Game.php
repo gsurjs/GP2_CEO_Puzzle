@@ -83,7 +83,7 @@ $stats = $userObj->getStatistics($_SESSION['user_id']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fifteen Puzzle - Play</title>
-    <link rel="stylesheet" href="game-styling.css">
+    <link rel="stylesheet" href="classes/game-styling.css">
 </head>
 <body>
     <div class="container">
@@ -181,6 +181,6 @@ $stats = $userObj->getStatistics($_SESSION['user_id']);
         <p id="achievementDesc"></p>
         <button onclick="closeAchievement()">Close</button>
     </div>
-    <script src="game-script.js"></script>
+    <script src="classes/game-script.js"></script>
 </body>
 </html>
