@@ -2,7 +2,7 @@
 //main game page with database integration
 require_once 'config/database.php';
 require_once 'classes/User.php';
-require_once 'game.php';
+require_once 'classes/Game.php';
 
 //require login
 requireLogin();
