@@ -153,7 +153,7 @@ class User {
         return $stmt->fetchAll();
     }
     
-    //check and aware achievs
+    //check and award achievs
     public function checkAchievements($userId) {
         $stats = $this->getStatistics($userId);
         $awarded = [];
@@ -172,7 +172,7 @@ class User {
         return array_filter($awarded);
     }
     
-    //aware achievs
+    //award achievs
     private function awardAchievement($userId, $achievementId) {
         try {
             $stmt = $this->db->prepare("
