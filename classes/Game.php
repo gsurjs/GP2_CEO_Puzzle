@@ -88,7 +88,7 @@ $stats = $userObj->getStatistics($_SESSION['user_id']);
 <body>
     <div class="container">
         <div class="game-header">
-            <h1>Fifteen Puzzle</h1>
+            <h1>1️⃣5️⃣ Puzzle</h1>
             <div class="game-info">
                 <div>Player: <span><?php echo htmlspecialchars($_SESSION['username']); ?></span></div>
                 <div>Total Games: <span><?php echo $stats['total_games']; ?></span></div>
