@@ -1,7 +1,3 @@
--- create database
-CREATE DATABASE IF NOT EXISTS fifteen_puzzle_db;
-USE fifteen_puzzle_db;
-
 -- 1. users table
 CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
