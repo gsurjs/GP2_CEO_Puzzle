@@ -1,0 +1,12 @@
+
+/config/database.php
+
+/.vscode/
+/.idea/
+.DS_Store
+Thumbs.db
+
+# --- Log Files ---
+# Ignore log files that might be generated on the server.
+*.log
+error_log
