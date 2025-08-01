@@ -52,21 +52,24 @@ function startNewGame() {
     })
     .then(response => response.json())
     .then(data => {
-        if (data.success) {
-            gameState.sessionId = data.session_id;
-            gameState.puzzleState = data.puzzle_state;
-            gameState.moves = 0;
-            gameState.startTime = new Date();
-            gameState.isPaused = false;
+    if (data.success) {
+        gameState.sessionId = data.session_id;
+        gameState.puzzleState = data.puzzle_state;
+        gameState.moves = 0;
+        gameState.startTime = new Date();
+        gameState.isPaused = false;
 
-            const [rows, cols] = puzzleSize.split('x').map(n => parseInt(n));
-            gameState.puzzleSize = rows;
+        const [rows, cols] = puzzleSize.split('x').map(n => parseInt(n));
+        gameState.puzzleSize = rows;
 
-            initializePuzzle();
-            updateDisplay();
-            startTimer();
-        }
-    });
+        initializePuzzle();
+        updateDisplay();
+        startTimer();
+
+        // ✅ Automatically shuffle right after creating the new game
+        shufflePuzzle();
+    }
+});
 }
 
 function initializePuzzle() {
@@ -185,7 +188,7 @@ function moveTile(tile) {
 
 function shufflePuzzle() {
     if (!gameState.sessionId) return;
-    
+
     fetch('game.php', {
         method: 'POST',
         headers: {
@@ -196,15 +199,17 @@ function shufflePuzzle() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            gameState.sessionId = data.session_id;
             gameState.puzzleState = data.puzzle_state;
             gameState.moves = 0;
             gameState.startTime = new Date();
+            gameState.isPaused = false;
+
+            const rows = gameState.puzzleSize;
+            const cols = gameState.puzzleSize;
+
             initializePuzzle();
             updateDisplay();
-            
-            if (gameState.timerInterval) {
-                clearInterval(gameState.timerInterval);
-            }
             startTimer();
         }
     });
