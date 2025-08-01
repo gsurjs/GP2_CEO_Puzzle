@@ -167,8 +167,11 @@ $stats = $userObj->getStatistics($_SESSION['user_id']);
 
                 <div class="control-group">
                     <a href="profile.php"><button>View Profile</button></a>
-                    <a href="leaderboard.php"><button>Leaderboard</button></a>
-                    <a href="logout.php"><button class="btn-danger">Logout</button></a>
+    <a href="leaderboard.php"><button>Leaderboard</button></a>
+    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+        <a href="admin.php"><button class="btn-warning">Admin Panel</button></a>
+    <?php endif; ?>
+    <a href="logout.php"><button class="btn-danger">Logout</button></a>
                 </div>
             </div>
         </div>
