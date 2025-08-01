@@ -20,6 +20,9 @@ class Game {
         // Generate initial puzzle state (solved)
         $puzzleState = $this->generateSolvedPuzzle($rows, $cols);
         
+        // FIX: Scramble the puzzle immediately so it starts scrambled
+        $puzzleState = $this->shufflePuzzle($puzzleState);
+        
         try {
             $stmt = $this->db->prepare("
                 INSERT INTO game_sessions (session_id, user_id, puzzle_state, puzzle_size, background_image_id)
