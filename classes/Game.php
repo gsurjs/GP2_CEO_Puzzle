@@ -8,9 +8,22 @@ class Game {
         $this->db = $db;
     }
     
+    // Get random background for randomizer feature
+    public function getRandomBackground() {
+        $stmt = $this->db->prepare("SELECT * FROM background_images WHERE is_active = 1 ORDER BY RAND() LIMIT 1");
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    
     // Start a new game session
     public function startNewGame($userId, $puzzleSize = '4x4', $backgroundImageId = null) {
         $sessionId = bin2hex(random_bytes(32));
+        
+        // Handle random background selection
+        if ($backgroundImageId === 'random' || $backgroundImageId === null) {
+            $randomBg = $this->getRandomBackground();
+            $backgroundImageId = $randomBg ? $randomBg['image_id'] : null;
+        }
         
         // Get puzzle dimensions
         list($rows, $cols) = explode('x', $puzzleSize);
@@ -20,8 +33,10 @@ class Game {
         // Generate initial puzzle state (solved)
         $puzzleState = $this->generateSolvedPuzzle($rows, $cols);
         
-        // FIX: Scramble the puzzle immediately so it starts scrambled
-        $puzzleState = $this->shufflePuzzle($puzzleState);
+        // --- Change Start ---
+        // Shuffle the puzzle state before saving and returning
+        $shuffledState = $this->shufflePuzzle($puzzleState);
+        // --- Change End ---
         
         try {
             $stmt = $this->db->prepare("
@@ -31,7 +46,7 @@ class Game {
             $stmt->execute([
                 $sessionId, 
                 $userId, 
-                json_encode($puzzleState), 
+                json_encode($shuffledState), // Use the shuffled state
                 $puzzleSize, 
                 $backgroundImageId
             ]);
@@ -39,8 +54,9 @@ class Game {
             return [
                 'success' => true,
                 'session_id' => $sessionId,
-                'puzzle_state' => $puzzleState,
-                'puzzle_size' => $puzzleSize
+                'puzzle_state' => $shuffledState, // Return the shuffled state
+                'puzzle_size' => $puzzleSize,
+                'background_id' => $backgroundImageId
             ];
         } catch (PDOException $e) {
             error_log("Game start error: " . $e->getMessage());

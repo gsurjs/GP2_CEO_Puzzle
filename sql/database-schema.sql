@@ -105,7 +105,8 @@ CREATE TABLE game_sessions (
 
 -- insert default background images
 INSERT INTO background_images (image_name, image_url) VALUES
-('CEO', 'images/backgrounds/background.jpg');
+('CEO', 'images/backgrounds/background.jpg')
+('');
 
 -- insert sample achievements
 INSERT INTO achievements (achievement_name, achievement_description, points_value) VALUES

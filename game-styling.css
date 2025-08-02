@@ -139,6 +139,24 @@ button:disabled {
     background-color: #c0392b;
 }
 
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-warning {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #e67e22;
+}
+
 /* Updated input styles - excluding checkboxes */
 select, 
 input:not([type="checkbox"]) {
@@ -265,6 +283,12 @@ input[type="checkbox"],
     color: var(--secondary-color);
     text-align: center;
     margin-bottom: 10px;
+}
+
+/* Style for the random button */
+#randomBgBtn {
+    min-width: 40px;
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {

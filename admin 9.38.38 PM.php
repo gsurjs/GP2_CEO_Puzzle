@@ -2,7 +2,6 @@
 //administrative panel for managing the game
 require_once 'config/database.php';
 require_once 'classes/User.php';
-// --- Correction: Changed 'game.php' to the correct class file path ---
 require_once 'classes/Game.php';
 
 //require admin access
@@ -142,6 +141,7 @@ $gameStatsBySize = $stmt->fetchAll();
             </div>
         <?php endif; ?>
 
+        <!-- stats overview -->
         <div class="stats-grid">
             <div class="stat-card">
                 <h3>Total Users</h3>
@@ -161,6 +161,7 @@ $gameStatsBySize = $stmt->fetchAll();
             </div>
         </div>
 
+        <!-- game stats by size -->
         <div class="admin-section">
             <h2>Game Statistics by Puzzle Size</h2>
             <table>
@@ -185,6 +186,7 @@ $gameStatsBySize = $stmt->fetchAll();
             </table>
         </div>
 
+        <!-- user management -->
         <div class="admin-section">
             <h2>User Management</h2>
             <table>
@@ -239,9 +241,11 @@ $gameStatsBySize = $stmt->fetchAll();
             </table>
         </div>
 
+        <!-- background image management -->
         <div class="admin-section">
             <h2>Background Image Management</h2>
             
+            <!-- add new image form -->
             <form method="POST" style="margin-bottom: 20px;">
                 <input type="hidden" name="action" value="add_image">
                 <input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
@@ -299,6 +303,7 @@ $gameStatsBySize = $stmt->fetchAll();
             </table>
         </div>
 
+        <!-- sys maintenance -->
         <div class="admin-section">
             <h2>System Maintenance</h2>
             <form method="POST">
