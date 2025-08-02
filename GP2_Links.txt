@@ -1,0 +1,20 @@
+Leader's Name: Robert Stanley
+
+Project Name: CEO Fifteen Puzzle
+
+Video Presentation: https://www.youtube.com/watch?v=iFIs-QlTQzE
+
+GitHub Link: https://github.com/gsurjs/GP2_CEO_Puzzle
+
+Codd Web Link: https://codd.cs.gsu.edu/~vho4/WP/PW/2/
+
+Description: Challenge yourself with solving the CEO's puzzling situation! Arrange the numbered tiles in order by sliding them into the empty space. Track your progress, compete on leaderboards, and unlock achievements!
+Selected Topic: Jeopardy Game
+
+Team Members and Responsibilities:
+
+- Meredith Berenson: Frontend Development (CSS animations, responsive design, UI/UX)
+
+- Victor Ho: Integration & Testing (file persistence, security, quality assurance)
+
+- Robert Stanley: Backend Development (PHP sessions, authentication, game logic)
